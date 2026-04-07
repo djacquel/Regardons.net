@@ -1,0 +1,1432 @@
+/* HEADER */
+/* 
+|--------------------------------------------------------------------------
+| RESET SOME DEFAULT BROWSER STYLES
+|--------------------------------------------------------------------------
+| Browsers add default margins/padding → we remove them
+| to have full control over layout.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* ensures padding doesn't break width */
+}
+
+/* 
+|--------------------------------------------------------------------------
+| NAVBAR MAIN CONTAINER
+|--------------------------------------------------------------------------
+*/
+.navbar {
+    width: 100%; /* take full width of screen */
+    background-color: #050807; /* dark background like your design */
+    position: relative; /* needed for overlay positioning */
+}
+
+/*
+| INNER CONTAINER
+| Centers content and controls spacing
+*/
+.nav-container {
+    max-width: 1440px; /* limits width (no huge stretching) */
+    margin: 0 auto; /* centers horizontally */
+    padding: 15px 20px; /* space inside left/right */
+
+    display: flex; /* makes children align in a row */
+    align-items: center; /* vertical alignment */
+    justify-content: space-between; /* space between logo & menu */
+}
+
+/* 
+|--------------------------------------------------------------------------
+| LOGO
+|--------------------------------------------------------------------------
+*/
+.logo {
+    width: 155px; /* controls logo size */
+}
+
+/* 
+|--------------------------------------------------------------------------
+| BURGER BUTTON (MOBILE)
+|--------------------------------------------------------------------------
+*/
+.burger-btn {
+    display: none; /* hidden on desktop */
+    flex-direction: column; /* stack lines vertically */
+    gap: 5px; /* space between lines */
+    background: none; /* remove default button style */
+    border: none;
+    cursor: pointer;
+}
+
+/* burger lines */
+.burger-btn span {
+    width: 25px;
+    height: 2px;
+    background-color: #fff; /* white lines */
+    display: block;
+}
+
+/* 
+|--------------------------------------------------------------------------
+| MENU PANEL (WRAPS NAV + RIGHT SECTION)
+|--------------------------------------------------------------------------
+*/
+.menu-panel {
+    display: flex; /* horizontal layout on desktop */
+    align-items: center;
+    gap: 30px;
+}
+
+/* 
+|--------------------------------------------------------------------------
+| NAV LINKS (CENTER MENU)
+|--------------------------------------------------------------------------
+*/
+.navlinks {
+    display: flex; /* horizontal list */
+    list-style: none; /* remove bullets */
+    gap: 35px; /* space between links */
+}
+
+/* each link */
+.navlink {
+    text-decoration: none; /* remove underline */
+    color: #ccc; /* light text */
+    font-size: 14px;
+    transition: 0.3s; /* smooth hover effect */
+}
+
+/* hover effect */
+.navlink:hover {
+    color: #c89b3c; /* gold color */
+}
+
+/* active page */
+.navlink.active {
+    color: #c89b3c; /* highlight current page */
+}
+
+/* 
+|--------------------------------------------------------------------------
+| RIGHT SECTION (SEARCH + AUTH)
+|--------------------------------------------------------------------------
+*/
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* 
+|--------------------------------------------------------------------------
+| SEARCH BAR
+|--------------------------------------------------------------------------
+*/
+.search_bar {
+    display: flex;
+    align-items: center;
+    background-color: #0d1110; /* slightly lighter than navbar */
+    padding: 5px 10px;
+    border-radius: 20px; /* rounded edges */
+}
+
+/* search icon */
+.search_icon {
+    width: 16px;
+    margin-right: 8px;
+}
+
+/* input field */
+.search_bar input {
+    border: none; /* remove border */
+    outline: none; /* remove blue focus outline */
+    background: transparent; /* match background */
+    color: #fff;
+    font-size: 13px;
+}
+
+/* AUTH LINKS (LOGIN / REGISTER)
+*/
+.auth-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+/* buttons */
+.btn {
+    text-decoration: none;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+/* ghost button (transparent) */
+.btn-ghost {
+    color: #ccc;
+}
+
+/* primary button (highlighted) */
+.btn-primary {
+    background-color: #c89b3c;
+    color: #000;
+}
+
+/* 
+| Activates when screen width is small
+*/
+@media (max-width: 900px) {
+    /* show burger button */
+    .burger-btn {
+        display: flex;
+    }
+
+    /* hide menu by default */
+    .menu-panel {
+        position: fixed; /* float over screen */
+        top: 0;
+        right: -100%; /* hidden outside screen */
+        width: 250px;
+        height: 100%;
+        background-color: #050807;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+        transition: 0.3s; /* smooth slide */
+    }
+
+    /* when active (via JS) */
+    .menu-panel.active {
+        right: 0; /* slide into view */
+    }
+
+    /* stack nav links vertically */
+    .navlinks {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    /* stack right section */
+    .right-section {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    /* make search full width */
+    .search_bar {
+        width: 100%;
+    }
+
+    .search_bar input {
+        width: 100%;
+    }
+}
+
+/* 
+|--------------------------------------------------------------------------
+| OVERLAY (DARK BACKGROUND ON MOBILE MENU)
+|--------------------------------------------------------------------------
+*/
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+    opacity: 0; /* hidden by default */
+    visibility: hidden;
+
+    transition: 0.3s;
+}
+
+/* when active */
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* contact page*/
+
+/* 
+   This is the outer section for the whole contact area.
+   The background uses 2 colors:
+   - left side = deep blue
+   - right side = very dark green/black
+
+   50% / 50% splits the background into two equal halves.
+   min-height: 100vh makes the section at least as tall
+   as the full screen height.
+*/
+.contact-section {
+    background: linear-gradient(to right, #142640 50%, #0a120d 50%);
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* 
+   This is the main layout container.
+   CSS Grid creates 2 columns:
+   - left panel
+   - right panel
+
+   Each column takes 1 fraction of space,
+   so they stay equal width on desktop.
+*/
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+/* LEFT PANEL */
+
+/* 
+   Styles the whole left side of the contact section.
+   Padding creates the inside spacing so the content
+   does not touch the edges.
+   Color sets the default text color for this side.
+*/
+.contact-left {
+    padding: 70px 80px 60px 80px;
+    color: #f2eee6;
+}
+
+/* 
+   Wrapper around the logo area.
+   margin-bottom pushes the content below it down.
+*/
+.contact-brand {
+    margin-bottom: 60px;
+}
+
+/* 
+   Controls the size of the logo image.
+   width: auto keeps the logo proportions correct.
+*/
+.contact-logo {
+    height: 38px;
+    width: auto;
+}
+
+/* 
+   Main title on the left panel: "Nous contacter"
+   Large elegant title with soft light color.
+*/
+.contact-title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #f4efe6;
+}
+
+/* 
+   Introductory paragraph under the title.
+   max-width prevents the text from becoming too wide.
+*/
+.contact-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #aeb5bf;
+    margin-bottom: 60px;
+    max-width: 520px;
+}
+
+/* 
+   Thin horizontal line used to separate content sections.
+*/
+.contact-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+    margin: 35px 0 24px 0;
+}
+
+/* 
+   This wraps all the small contact info items
+   (email, response time, location).
+   flex-direction: column stacks them vertically.
+*/
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 
+   One contact info row:
+   icon on the left + text on the right.
+*/
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+/* 
+   Small square icon box.
+   Used for the symbol next to email / response / location.
+*/
+.contact-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: rgba(201, 145, 23, 0.12);
+    color: #d19417;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* 
+   Holds the label and paragraph text
+   for each contact item.
+*/
+.contact-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* 
+   Small uppercase label above each contact detail.
+   Example: EMAIL, RÉPONSE, LOCALISATION
+*/
+.contact-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    color: #b58b33;
+}
+
+/* 
+   Actual detail text under each label.
+*/
+.contact-info-text p {
+    font-size: 1rem;
+    color: #cfd4db;
+}
+
+/* IMAGE BLOCK (BOTTOM LEFT)*/
+
+/* 
+   Wrapper around the image.
+   It gives the image a fixed height,
+   rounded corners, and hides anything
+   that overflows outside the box.
+*/
+.contact-image-wrapper {
+    width: 100%;
+    height: 140px;
+    margin-top: 26px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* 
+   The image itself.
+   width + height 100% makes it fill the wrapper.
+   object-fit: cover makes the image crop nicely
+   without looking stretched. [web:121][web:124][web:127]
+*/
+.contact-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* RIGHT PANEL */
+
+/* 
+   Styles the right half of the contact section.
+   Padding controls the inside spacing.
+*/
+.contact-right {
+    padding: 70px 80px 60px 80px;
+    color: #f2eee6;
+}
+
+/* 
+   Form title: "Envoyer un message"
+   padding-left gives room for the decorative bullet.
+*/
+.form-title {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 32px;
+    color: #f4efe6;
+    position: relative;
+    padding-left: 18px;
+}
+
+.success-message {
+    margin-bottom: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    background-color: rgba(38, 92, 59, 0.18);
+    border: 1px solid rgba(84, 170, 117, 0.35);
+    color: #d8f3df;
+    font-size: 0.9rem;
+}
+
+.error-message {
+    margin-bottom: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    background-color: rgba(120, 28, 28, 0.18);
+    border: 1px solid rgba(212, 92, 92, 0.35);
+    color: #ffd8d8;
+    font-size: 0.9rem;
+}
+
+.error-message ul {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.field-error {
+    display: block;
+    margin-top: 0.35rem;
+    color: #ffb4b4;
+    font-size: 0.8rem;
+}
+
+/* 
+   Decorative gold bullet before the form title.
+   ::before creates extra visual decoration with CSS.
+*/
+.form-title::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #b98015;
+}
+
+/* FORM LAYOUT */
+
+/* 
+   Main form wrapper.
+   width: 100% makes the form take the full available width.
+*/
+.contact-form {
+    width: 100%;
+}
+
+/* 
+   First row of the form:
+   prénom + nom side by side.
+   Grid creates 2 equal columns. [web:122][web:128]
+*/
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* 
+   One form group = label + input/select/textarea.
+   flex-direction: column stacks the label above the field.
+*/
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+/* 
+   Small uppercase labels for the form fields.
+*/
+.form-group label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    color: #8f8c7d;
+    margin-bottom: 8px;
+}
+
+/* 
+   Shared style for all form controls:
+   - input
+   - select
+   - textarea
+
+   Gives them the dark transparent look,
+   border, padding, and rounded corners.
+*/
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: #ece7db;
+    padding: 14px 16px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+/* 
+   Placeholder text color inside inputs and textarea.
+*/
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #8f8c7d;
+}
+
+/* 
+   Makes the select feel clickable
+   and removes some browser default styling behavior.
+*/
+.form-group select {
+    appearance: none;
+    cursor: pointer;
+}
+
+/* 
+   Prevents the textarea from being manually resized
+   by the user and gives it a minimum height.
+*/
+.form-group textarea {
+    resize: none;
+    min-height: 120px;
+}
+
+/* 
+   Main submit button at the bottom of the form.
+   width: 100% makes it stretch across the form.
+   letter-spacing creates the elegant spaced-out text.
+*/
+.submit-btn {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: #c88708;
+    color: #16120c;
+    padding: 16px 20px;
+    font-size: 0.82rem;
+    letter-spacing: 0.24em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+/* 
+   Slight hover effect when the mouse is over the button.
+*/
+.submit-btn:hover {
+    background: #d69414;
+}
+
+/*  RESPONSIVE DESIGN */
+
+/* 
+   On screens smaller than 992px:
+   - the 2-column layout becomes 1 column
+   - the whole background becomes a single color
+   - the padding becomes smaller
+   - prénom and nom stack vertically
+*/
+@media (max-width: 992px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-section {
+        background: #0f1e31;
+    }
+
+    .contact-left,
+    .contact-right {
+        padding: 50px 24px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Registration page */
+
+/* 
+   Main background of the register page.
+   Uses a split background:
+   - left side: almost black
+   - right side: dark green-black
+*/
+.register-section {
+    background: linear-gradient(to right, #020708 50%, #111915 50%);
+    min-height: 100vh;
+}
+
+/* 
+   Main container split into 2 equal columns.
+   Left = visual/info side
+   Right = form side
+*/
+.register-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+/* LEFT PANEL*/
+
+/* 
+   Left side spacing and text color.
+*/
+.register-left {
+    padding: 70px 80px 70px 80px;
+    color: #f4efe6;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 
+   Logo block at the top.
+*/
+.register-brand {
+    margin-bottom: 160px;
+}
+
+/* 
+   Logo size.
+*/
+.register-logo {
+    height: 40px;
+    width: auto;
+}
+
+/* 
+   Wrapper around the left-side image.
+   It controls:
+   - width
+   - rounded corners
+   - cropping
+*/
+.register-image-wrapper {
+    width: 72%;
+    max-width: 440px;
+    height: 300px;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 130px;
+}
+
+/* 
+   Real image element.
+   object-fit: cover makes the image fill the box nicely
+   without stretching. [web:121][web:124]
+*/
+.register-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 
+   Small title under the image.
+*/
+.register-left-title {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    color: #f2eee4;
+}
+
+/* 
+   Supporting text under the left title.
+*/
+.register-left-text {
+    max-width: 520px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #8e948d;
+}
+
+/* RIGHT PANEL */
+
+/* 
+   Right side of the page containing the form.
+   display: flex + justify-content center helps center
+   the form vertically.
+*/
+.register-right {
+    padding: 70px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #f4efe6;
+}
+
+/* 
+   Main title of the register form.
+*/
+.register-title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: #f4efe6;
+}
+
+/* 
+   Short descriptive line under the title.
+*/
+.register-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #8d938d;
+    margin-bottom: 28px;
+}
+
+/*FORM */
+
+/* 
+   Main form wrapper.
+*/
+.register-form {
+    width: 100%;
+}
+
+/* 
+   Row of 2 form fields next to each other.
+   Used for:
+   - prénom / nom
+   - mot de passe / confirmer
+*/
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* 
+   Each form group contains:
+   - label
+   - input/select/textarea
+*/
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+/* 
+   Small uppercase field labels.
+*/
+.form-group label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: #767b74;
+    margin-bottom: 8px;
+}
+
+/* 
+   Shared styles for the form inputs.
+   Gives them the dark elegant input look.
+*/
+.form-group input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: #ece7db;
+    padding: 0 14px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+/* 
+   Input placeholder style.
+*/
+.form-group input::placeholder {
+    color: #8a8f89;
+}
+
+/* CHECKBOX ROW */
+
+/* 
+   Row containing the checkbox and the legal text.
+*/
+.checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 8px 0 18px 0;
+}
+
+/* 
+   Checkbox size and accent color.
+*/
+.checkbox-row input[type="checkbox"] {
+    accent-color: #c88708;
+    margin-top: 3px;
+}
+
+/* 
+   Text next to the checkbox.
+*/
+.checkbox-row label {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #8e938d;
+}
+
+/* 
+   Links inside the checkbox text.
+*/
+.checkbox-row a {
+    color: #b8861e;
+    text-decoration: none;
+}
+
+/*SUBMIT BUTTON */
+
+/* 
+   Main orange register button.
+*/
+.register-submit-btn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #c88708;
+    color: #14100a;
+    font-size: 0.82rem;
+    letter-spacing: 0.24em;
+    cursor: pointer;
+    margin-bottom: 26px;
+}
+
+/* 
+   Slight hover effect.
+*/
+.register-submit-btn:hover {
+    background: #d79514;
+}
+
+/* LOGIN LINK + FOOTER NOTE */
+
+/* 
+   Small text below the button.
+*/
+.login-text {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #8d938d;
+    margin-bottom: 28px;
+}
+
+/* 
+   Login link style.
+*/
+.login-text a {
+    color: #b8861e;
+    text-decoration: none;
+}
+
+/* 
+   Bottom informational note.
+   The top border separates it visually from the form area.
+*/
+.register-note {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 18px;
+    font-size: 0.98rem;
+    color: #d7d2c8;
+    line-height: 1.8;
+}
+
+/*RESPONSIVE */
+
+/* 
+   On smaller screens:
+   - stack left and right panels vertically
+   - reduce padding
+   - stack form rows into one column
+   - widen the image
+*/
+@media (max-width: 992px) {
+    .register-container {
+        grid-template-columns: 1fr;
+    }
+
+    .register-section {
+        background: #0a0f0d;
+    }
+
+    .register-left,
+    .register-right {
+        padding: 50px 24px;
+    }
+
+    .register-brand {
+        margin-bottom: 50px;
+    }
+
+    .register-image-wrapper {
+        width: 100%;
+        max-width: 100%;
+        height: 260px;
+        margin-bottom: 50px;
+    }
+
+    .form-row,
+    .social-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* login page */
+
+/* 
+   Main background of the login page.
+   A split gradient:
+   - left half nearly black
+   - right half dark green-black
+   to echo your Figma design.
+*/
+.login-section {
+    background: linear-gradient(to right, #020708 50%, #111915 50%);
+    min-height: 100vh; /* Make the section fill screen height */
+}
+
+/* 
+   This container holds both left and right panels
+   in a two-column grid layout.
+*/
+.login-container {
+    display: grid; /* Activate CSS Grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    min-height: 100vh; /* Make columns stretch vertically */
+}
+.login-left {
+    padding: 70px 80px 70px 80px; /* Inside spacing: top,right,bottom,left */
+    color: #f4efe6; /* Default text color for this column */
+    display: flex; /* Use Flexbox */
+    flex-direction: column; /* Stack children vertically */
+}
+
+/* 
+   Wrapper for the logo at the top-left.
+   margin-bottom moves the rest of the content downward.
+*/
+.login-brand {
+    margin-bottom: 120px;
+}
+
+/* 
+   Logo image size.
+   Fixed height, automatic width keeps proportions.
+*/
+.login-logo {
+    height: 40px;
+    width: auto;
+}
+
+/* 
+   Width/height controls its size.
+   border-radius rounds the corners.
+   overflow: hidden crops the image inside the rounded box.
+*/
+.login-image-wrapper {
+    width: 72%; /* 72% of the left panel width */
+    max-width: 440px; /* But never more than 440px wide */
+    height: 280px; /* Fixed height */
+    border-radius: 14px; /* Rounded corners */
+    overflow: hidden; /* Hide image parts outside rounded border */
+    margin-bottom: 120px; /* Space below the image */
+}
+
+/* 
+   Actual image inside the wrapper.
+   width/height 100% makes it fill the wrapper.
+   object-fit: cover ensures the image covers the box
+   without distortion (cropping edges if needed).
+*/
+.login-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keep aspect ratio, cover entire box */
+    display: block; /* Remove small whitespace under images */
+}
+
+/* 
+   Left panel title text under the image.
+   Uses light color and larger font size for emphasis.
+*/
+.login-left-title {
+    font-size: 2rem;
+    font-weight: 300; /* Light weight for elegant feel */
+    line-height: 1.3;
+    margin-bottom: 14px;
+    color: #f2eee4;
+}
+
+/* 
+   Supporting paragraph below the left title.
+   max-width keeps the paragraph easy to read.
+*/
+.login-left-text {
+    max-width: 520px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #8e948d;
+}
+
+/* RIGHT PANEL */
+
+/* 
+   The right side where the login form lives.
+   Flexbox is used to center content vertically.
+*/
+.login-right {
+    padding: 70px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the form */
+    color: #f4efe6;
+}
+
+/* 
+   Main title "Connexion".
+*/
+.login-title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: #f4efe6;
+}
+
+/* 
+   Subtitle text under the main title.
+*/
+.login-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #8d938d;
+    margin-bottom: 28px;
+}
+
+/* FORM STYLES */
+
+/* 
+   Wraps the form fields; 100% to match panel width.
+*/
+.login-form {
+    width: 100%;
+}
+
+/* 
+   One label + input block.
+   flex-column stacks label above input.
+*/
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+/* 
+   Text styling for the labels (ADRESSE EMAIL, MOT DE PASSE).
+*/
+.form-group label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em; /* Spaced-out letters for a refined look */
+    color: #767b74;
+    margin-bottom: 8px;
+}
+
+/* 
+   Base styling for each text/password input.
+*/
+.form-group input {
+    width: 100%; /* Fill container width */
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Thin subtle border */
+    background: rgba(255, 255, 255, 0.03); /* Very dark translucent bg */
+    color: #ece7db; /* Light text color */
+    padding: 0 14px; /* Left-right inner padding */
+    border-radius: 8px; /* Rounded corners */
+    outline: none; /* Remove default blue outline */
+    font-size: 0.95rem;
+}
+
+/* 
+   Placeholder text color inside inputs.
+*/
+.form-group input::placeholder {
+    color: #8a8f89;
+}
+
+/* 
+   Row containing the "Mot de passe oublié ?" link.
+   align-self: flex-end (on the link) will push it to the right.
+*/
+.forgot-row {
+    display: flex;
+    justify-content: flex-end; /* Move link to the right side */
+    margin-top: 6px;
+}
+
+/* 
+   Style for the reset password link.
+*/
+.forgot-row a {
+    font-size: 0.85rem;
+    color: #b8861e;
+    text-decoration: none;
+}
+
+/* SUBMIT BUTTON */
+
+/* 
+   Main orange "SE CONNECTER" button.
+   Full-width with big letter spacing.
+*/
+.login-submit-btn {
+    width: 100%; /* Span full form width */
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #c88708; /* Brand orange */
+    color: #14100a; /* Dark text for contrast */
+    font-size: 0.82rem;
+    letter-spacing: 0.24em; /* Spread out letters */
+    cursor: pointer;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+/* 
+   Slight hover feedback for the submit button.
+*/
+.login-submit-btn:hover {
+    background: #d79514;
+}
+
+/* REGISTER LINK + FOOTER NOTE*/
+
+/* 
+   Text for "Pas encore de compte ? Inscription".
+*/
+.register-text {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #8d938d;
+    margin-bottom: 20px;
+}
+
+/* 
+   The "Inscription" link inside that text.
+*/
+.register-text a {
+    color: #b8861e;
+    text-decoration: none;
+}
+
+/* 
+   Bottom security note under everything else.
+   A subtle separator line on top using border-top.
+*/
+.login-note {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 18px;
+    font-size: 0.98rem;
+    color: #d7d2c8;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE*/
+
+/* 
+   When the viewport is 992px wide or less (tablet/mobile),
+   stack the two columns vertically and reduce spacing.
+*/
+@media (max-width: 992px) {
+    /* Make layout single-column instead of 2-column */
+    .login-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Use a single dark background for small screens */
+    .login-section {
+        background: #0a0f0d;
+    }
+
+    /* Reduce padding on both panels */
+    .login-left,
+    .login-right {
+        padding: 50px 24px;
+    }
+
+    /* Move the logo closer to other elements on small screens */
+    .login-brand {
+        margin-bottom: 40px;
+    }
+
+    /* Make the image use full width on small screens */
+    .login-image-wrapper {
+        width: 100%;
+        max-width: 100%;
+        height: 240px;
+        margin-bottom: 40px;
+    }
+
+    /* Stack social buttons vertically instead of side-by-side */
+    .social-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FOOTER */
+/* 
+|--------------------------------------------------------------------------
+| GLOBAL FOOTER STYLE
+|--------------------------------------------------------------------------
+| Removes unwanted spacing and makes layout clean & centered
+|--------------------------------------------------------------------------
+*/
+
+.footer {
+    background-color: #050807; /* darker, closer to your design */
+    color: #bfbfbf;
+    width: 100%; /* ensures no side gaps */
+    margin: 0;
+    padding: 50px 0 0 0;
+    font-family: "Segoe UI", sans-serif; /* cleaner typography */
+}
+
+/* 
+|--------------------------------------------------------------------------
+| MAIN CONTAINER
+|--------------------------------------------------------------------------
+| Controls layout width WITHOUT leaving empty sides
+|--------------------------------------------------------------------------
+*/
+.footer-container {
+    width: 100%;
+    max-width: 1440px; /* tighter than before */
+    margin: 0 auto; /* center content */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 20px;
+}
+
+/* LEFT SECTION */
+.footer-left {
+    max-width: 280px;
+}
+
+/* Logo */
+.footer-logo {
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+/* Tagline */
+.footer-tagline {
+    font-size: 13px;
+    color: #777;
+    font-style: italic;
+}
+
+/* RIGHT SECTION */
+.footer-right {
+    display: flex;
+    gap: 50px;
+}
+
+/* Column titles */
+.footer-column h3 {
+    font-size: 12px;
+    color: #c89b3c;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+/* Remove bullets */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Spacing between links */
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+/* Links */
+.footer-column ul li a {
+    text-decoration: none;
+    color: #bfbfbf;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.footer-column ul li a:hover {
+    color: #c89b3c;
+}
+
+/* 
+|--------------------------------------------------------------------------
+| BOTTOM BAR
+|--------------------------------------------------------------------------
+*/
+.footer-bottom {
+    border-top: 1px solid #1a1a1a;
+    margin-top: 40px;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 11px;
+    color: #666;
+}
+
+/* 
+|--------------------------------------------------------------------------
+| RESPONSIVE DESIGN (VERY IMPORTANT)
+|--------------------------------------------------------------------------
+*/
+
+/* Tablets */
+@media (max-width: 900px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-right {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 500px) {
+    .footer-title {
+        font-size: 14px;
+    }
+
+    .footer-column h3 {
+        font-size: 11px;
+    }
+
+    .footer-column ul li a {
+        font-size: 12px;
+    }
+}
