@@ -56,6 +56,30 @@
             </p>
 
             {{-- 
+    This block checks if Laravel has any validation errors.
+    If there are errors, it displays them .
+--}}
+@if ($errors->any())
+
+    {{-- Main error container --}}
+    <div class="error-alert">
+
+        {{-- Small title to tell the user something went wrong --}}
+        <p class="error-alert-title">Veuillez corriger les erreurs suivantes:</p>
+
+        {{-- List that will contain each validation error --}}
+        <ul class="error-alert-list">
+
+            {{-- Loop through every error message and show it as a list item --}}
+            @foreach ($errors->all() as $error)
+                <li class="error-alert-item">{{ $error }}</li>
+            @endforeach
+
+        </ul>
+    </div>
+@endif
+
+            {{-- 
                 Main registration form.
                 route('register') is provided by Laravel Fortify.
                 method POST sends form data securely to the server.

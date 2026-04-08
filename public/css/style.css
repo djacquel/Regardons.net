@@ -791,6 +791,59 @@
 /*FORM */
 
 /* 
+   Main error message box
+   - light red background to show danger/error
+   - dark red text for readability
+   - padding adds inner space
+   - margin-bottom creates space below the box
+   - border makes the box more visible
+   - border-radius softens the corners
+*/
+.error-alert {
+    background: #fee;
+    color: #900;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #f99;
+    border-radius: 8px;
+}
+
+/* 
+   Error title
+   - bold text makes it stand out
+   - margin-bottom separates it from the list
+*/
+.error-alert-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* 
+   Error list
+   - remove default top/bottom margin
+   - add left padding so bullets are visible
+*/
+.error-alert-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* 
+   Each error line
+   - small spacing between items
+*/
+.error-alert-item {
+    margin-bottom: 4px;
+}
+
+/* 
+   Removes extra space after the last item
+*/
+.error-alert-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 
    Main form wrapper.
 */
 .register-form {
