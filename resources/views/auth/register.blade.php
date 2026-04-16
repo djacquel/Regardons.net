@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
-{{-- 
-    This starts the content section.
-    Everything inside this block will be inserted
-    into @yield('content') from your main layout.
---}}
+
 @section('content')
 
 <section class="register-section">
@@ -16,12 +12,6 @@
              - the image block
              - the small marketing text--}}
         <div class="register-left">
-
-            {{-- Logo area at the top left --}}
-            <div class="register-brand">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo Regardons" class="register-logo">
-            </div>
-
             {{-- 
                 Image block.
                 Replace register-image.jpg with your real file name

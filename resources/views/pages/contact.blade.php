@@ -17,14 +17,6 @@
             --}}
         <div class="contact-left">
 
-            {{-- Brand/logo area --}}
-            <div class="contact-brand">
-                {{-- 
-                    asset('images/logo.png') generates the correct URL
-                    to the image inside public/images/logo.png
-                --}}
-                <img src="{{ asset('images/logo.png') }}" alt="Logo Regardons" class="contact-logo">
-            </div>
 
             {{-- Main heading of the contact page --}}
             <h1 class="contact-title">Nous contacter</h1>

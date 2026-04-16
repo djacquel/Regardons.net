@@ -7,12 +7,6 @@
 
         {{-- LEFT PANEL (logo + big image + small text) --}}
         <div class="login-left">
-
-            {{-- Logo at the top --}}
-            <div class="login-brand">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo Regardons" class="login-logo">
-            </div>
-
         
             <div class="login-image-wrapper">
                 <img 
