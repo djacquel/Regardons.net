@@ -1,0 +1,388 @@
+/* 
+   This is the outer section for the whole contact area.
+   The background uses 2 colors:
+   - left side = deep blue
+   - right side = very dark green/black
+
+   50% / 50% splits the background into two equal halves.
+   min-height: 100vh makes the section at least as tall
+   as the full screen height.
+*/
+.contact-section {
+    background: linear-gradient(to right, #142640 50%, #0a120d 50%);
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* 
+   This is the main layout container.
+   CSS Grid creates 2 columns:
+   - left panel
+   - right panel
+
+   Each column takes 1 fraction of space,
+   so they stay equal width on desktop.
+*/
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+/* LEFT PANEL */
+
+/* 
+   Styles the whole left side of the contact section.
+   Padding creates the inside spacing so the content
+   does not touch the edges.
+   Color sets the default text color for this side.
+*/
+.contact-left {
+    padding: 70px 80px 60px 80px;
+    color: #f2eee6;
+}
+
+/* 
+   Wrapper around the logo area.
+   margin-bottom pushes the content below it down.
+*/
+.contact-brand {
+    margin-bottom: 60px;
+}
+/* 
+   Main title on the left panel: "Nous contacter"
+   Large elegant title with soft light color.
+*/
+.contact-title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #f4efe6;
+}
+
+/* 
+   Introductory paragraph under the title.
+   max-width prevents the text from becoming too wide.
+*/
+.contact-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #aeb5bf;
+    margin-bottom: 60px;
+    max-width: 520px;
+}
+
+/* 
+   Thin horizontal line used to separate content sections.
+*/
+.contact-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+    margin: 35px 0 24px 0;
+}
+
+/* 
+   This wraps all the small contact info items
+   (email, response time, location).
+   flex-direction: column stacks them vertically.
+*/
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 
+   One contact info row:
+   icon on the left + text on the right.
+*/
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+/* 
+   Small square icon box.
+   Used for the symbol next to email / response / location.
+*/
+.contact-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: rgba(201, 145, 23, 0.12);
+    color: #d19417;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* 
+   Holds the label and paragraph text
+   for each contact item.
+*/
+.contact-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* 
+   Small uppercase label above each contact detail.
+   Example: EMAIL, RÉPONSE, LOCALISATION
+*/
+.contact-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    color: #b58b33;
+}
+
+/* 
+   Actual detail text under each label.
+*/
+.contact-info-text p {
+    font-size: 1rem;
+    color: #cfd4db;
+}
+
+/* IMAGE BLOCK (BOTTOM LEFT)*/
+
+/* 
+   Wrapper around the image.
+   It gives the image a fixed height,
+   rounded corners, and hides anything
+   that overflows outside the box.
+*/
+.contact-image-wrapper {
+    width: 100%;
+    height: 140px;
+    margin-top: 26px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* 
+   The image itself.
+   width + height 100% makes it fill the wrapper.
+   object-fit: cover makes the image crop nicely
+   without looking stretched. [web:121][web:124][web:127]
+*/
+.contact-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* RIGHT PANEL */
+
+/* 
+   Styles the right half of the contact section.
+   Padding controls the inside spacing.
+*/
+.contact-right {
+    padding: 70px 80px 60px 80px;
+    color: #f2eee6;
+}
+
+/* 
+   Form title: "Envoyer un message"
+   padding-left gives room for the decorative bullet.
+*/
+.form-title {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 32px;
+    color: #f4efe6;
+    position: relative;
+    padding-left: 18px;
+}
+
+.success-message {
+    margin-bottom: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    background-color: rgba(38, 92, 59, 0.18);
+    border: 1px solid rgba(84, 170, 117, 0.35);
+    color: #d8f3df;
+    font-size: 0.9rem;
+}
+
+.error-message {
+    margin-bottom: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    background-color: rgba(120, 28, 28, 0.18);
+    border: 1px solid rgba(212, 92, 92, 0.35);
+    color: #ffd8d8;
+    font-size: 0.9rem;
+}
+
+.error-message ul {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.field-error {
+    display: block;
+    margin-top: 0.35rem;
+    color: #ffb4b4;
+    font-size: 0.8rem;
+}
+
+/* 
+   Decorative gold bullet before the form title.
+   ::before creates extra visual decoration with CSS.
+*/
+.form-title::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #b98015;
+}
+
+/* FORM LAYOUT */
+
+/* 
+   Main form wrapper.
+   width: 100% makes the form take the full available width.
+*/
+.contact-form {
+    width: 100%;
+}
+
+/* 
+   First row of the form:
+   prénom + nom side by side.
+   Grid creates 2 equal columns. [web:122][web:128]
+*/
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* 
+   One form group = label + input/select/textarea.
+   flex-direction: column stacks the label above the field.
+*/
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+/* 
+   Small uppercase labels for the form fields.
+*/
+.form-group label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    color: #8f8c7d;
+    margin-bottom: 8px;
+}
+
+/* 
+   Shared style for all form controls:
+   - input
+   - select
+   - textarea
+
+   Gives them the dark transparent look,
+   border, padding, and rounded corners.
+*/
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: #ece7db;
+    padding: 14px 16px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+/* 
+   Placeholder text color inside inputs and textarea.
+*/
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #8f8c7d;
+}
+
+/* 
+   Makes the select feel clickable
+   and removes some browser default styling behavior.
+*/
+.form-group select {
+    appearance: none;
+    cursor: pointer;
+}
+
+/* 
+   Prevents the textarea from being manually resized
+   by the user and gives it a minimum height.
+*/
+.form-group textarea {
+    resize: none;
+    min-height: 120px;
+}
+
+/* 
+   Main submit button at the bottom of the form.
+   width: 100% makes it stretch across the form.
+   letter-spacing creates the elegant spaced-out text.
+*/
+.submit-btn {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: #c88708;
+    color: #16120c;
+    padding: 16px 20px;
+    font-size: 0.82rem;
+    letter-spacing: 0.24em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+/* 
+   Slight hover effect when the mouse is over the button.
+*/
+.submit-btn:hover {
+    background: #d69414;
+}
+
+/*  RESPONSIVE DESIGN */
+
+/* 
+   On screens smaller than 992px:
+   - the 2-column layout becomes 1 column
+   - the whole background becomes a single color
+   - the padding becomes smaller
+   - prénom and nom stack vertically
+*/
+@media (max-width: 992px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-section {
+        background: #0f1e31;
+    }
+
+    .contact-left,
+    .contact-right {
+        padding: 50px 24px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

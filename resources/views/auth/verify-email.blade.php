@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/verify-email.css') }}">
+@endpush
+
 @section('content')
 <section class="verify-section">
     <div class="verify-container">

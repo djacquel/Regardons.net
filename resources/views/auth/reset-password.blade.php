@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/reset-password.css') }}">
+@endpush
+
 @section('title', 'Réinitialiser le mot de passe')
 
 @section('content')

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/forgot-password.css') }}">
+@endpush
+
 @section('title', 'Mot de passe oublié')
 
 @section('content')

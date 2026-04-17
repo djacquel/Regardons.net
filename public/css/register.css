@@ -1,0 +1,377 @@
+/* 
+   Main background of the register page.
+   Uses a split background:
+   - left side: almost black
+   - right side: dark green-black
+*/
+.register-section {
+    background: linear-gradient(to right, #020708 50%, #111915 50%);
+    min-height: 100vh;
+}
+
+/* 
+   Main container split into 2 equal columns.
+   Left = visual/info side
+   Right = form side
+*/
+.register-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+/* LEFT PANEL*/
+
+/* 
+   Left side spacing and text color.
+*/
+.register-left {
+    padding: 70px 80px 70px 80px;
+    color: #f4efe6;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 
+   Logo block at the top.
+*/
+.register-brand {
+    margin-bottom: 160px;
+}
+
+/* 
+   Wrapper around the left-side image.
+   It controls:
+   - width
+   - rounded corners
+   - cropping
+*/
+.register-image-wrapper {
+    width: 72%;
+    max-width: 440px;
+    height: 300px;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 130px;
+}
+
+/* 
+   Real image element.
+   object-fit: cover makes the image fill the box nicely
+   without stretching. [web:121][web:124]
+*/
+.register-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 
+   Small title under the image.
+*/
+.register-left-title {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    color: #f2eee4;
+}
+
+/* 
+   Supporting text under the left title.
+*/
+.register-left-text {
+    max-width: 520px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #8e948d;
+}
+
+/* RIGHT PANEL */
+
+/* 
+   Right side of the page containing the form.
+   display: flex + justify-content center helps center
+   the form vertically.
+*/
+.register-right {
+    padding: 70px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #f4efe6;
+}
+
+/* 
+   Main title of the register form.
+*/
+.register-title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: #f4efe6;
+}
+
+/* 
+   Short descriptive line under the title.
+*/
+.register-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #8d938d;
+    margin-bottom: 28px;
+}
+
+/*FORM */
+
+/* 
+   Main error message box
+   - light red background to show danger/error
+   - dark red text for readability
+   - padding adds inner space
+   - margin-bottom creates space below the box
+   - border makes the box more visible
+   - border-radius softens the corners
+*/
+.error-alert {
+    background: #fee;
+    color: #900;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #f99;
+    border-radius: 8px;
+}
+
+/* 
+   Error title
+   - bold text makes it stand out
+   - margin-bottom separates it from the list
+*/
+.error-alert-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* 
+   Error list
+   - remove default top/bottom margin
+   - add left padding so bullets are visible
+*/
+.error-alert-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* 
+   Each error line
+   - small spacing between items
+*/
+.error-alert-item {
+    margin-bottom: 4px;
+}
+
+/* 
+   Removes extra space after the last item
+*/
+.error-alert-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 
+   Main form wrapper.
+*/
+.register-form {
+    width: 100%;
+}
+
+/* 
+   Row of 2 form fields next to each other.
+   Used for:
+   - prénom / nom
+   - mot de passe / confirmer
+*/
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* 
+   Each form group contains:
+   - label
+   - input/select/textarea
+*/
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+/* 
+   Small uppercase field labels.
+*/
+.form-group label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: #767b74;
+    margin-bottom: 8px;
+}
+
+/* 
+   Shared styles for the form inputs.
+   Gives them the dark elegant input look.
+*/
+.form-group input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: #ece7db;
+    padding: 0 14px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+/* 
+   Input placeholder style.
+*/
+.form-group input::placeholder {
+    color: #8a8f89;
+}
+
+/* CHECKBOX ROW */
+
+/* 
+   Row containing the checkbox and the legal text.
+*/
+.checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 8px 0 18px 0;
+}
+
+/* 
+   Checkbox size and accent color.
+*/
+.checkbox-row input[type="checkbox"] {
+    accent-color: #c88708;
+    margin-top: 3px;
+}
+
+/* 
+   Text next to the checkbox.
+*/
+.checkbox-row label {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #8e938d;
+}
+
+/* 
+   Links inside the checkbox text.
+*/
+.checkbox-row a {
+    color: #b8861e;
+    text-decoration: none;
+}
+
+/*SUBMIT BUTTON */
+
+/* 
+   Main orange register button.
+*/
+.register-submit-btn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #c88708;
+    color: #14100a;
+    font-size: 0.82rem;
+    letter-spacing: 0.24em;
+    cursor: pointer;
+    margin-bottom: 26px;
+}
+
+/* 
+   Slight hover effect.
+*/
+.register-submit-btn:hover {
+    background: #d79514;
+}
+
+/* LOGIN LINK + FOOTER NOTE */
+
+/* 
+   Small text below the button.
+*/
+.login-text {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #8d938d;
+    margin-bottom: 28px;
+}
+
+/* 
+   Login link style.
+*/
+.login-text a {
+    color: #b8861e;
+    text-decoration: none;
+}
+
+/* 
+   Bottom informational note.
+   The top border separates it visually from the form area.
+*/
+.register-note {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 18px;
+    font-size: 0.98rem;
+    color: #d7d2c8;
+    line-height: 1.8;
+}
+
+/*RESPONSIVE */
+
+/* 
+   On smaller screens:
+   - stack left and right panels vertically
+   - reduce padding
+   - stack form rows into one column
+   - widen the image
+*/
+@media (max-width: 992px) {
+    .register-container {
+        grid-template-columns: 1fr;
+    }
+
+    .register-section {
+        background: #0a0f0d;
+    }
+
+    .register-left,
+    .register-right {
+        padding: 50px 24px;
+    }
+
+    .register-brand {
+        margin-bottom: 50px;
+    }
+
+    .register-image-wrapper {
+        width: 100%;
+        max-width: 100%;
+        height: 260px;
+        margin-bottom: 50px;
+    }
+
+    .form-row,
+    .social-row {
+        grid-template-columns: 1fr;
+    }
+}

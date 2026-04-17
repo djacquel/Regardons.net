@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+@endpush
+
 {{-- 
     Start of the "content" section.
     Everything inside this section will be inserted into

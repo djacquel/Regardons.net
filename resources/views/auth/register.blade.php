@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+@endpush
+
+
 @section('content')
 
 <section class="register-section">

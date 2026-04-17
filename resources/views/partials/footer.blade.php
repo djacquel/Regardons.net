@@ -16,7 +16,7 @@
         {{-- LEFT SIDE: Logo + Tagline --}}
         <div class="footer-left">
             {{-- Logo image --}}
-            <img src="{{ asset('images/logo.png') }}" alt="Regardons Logo" class="footer-logo">
+            <h2 class="footer-logo"> REGARD<span class="ons">ONS</span></h2>
 
             {{-- Tagline --}}
             <p class="footer-tagline">La nature vue à travers l'objectif</p>

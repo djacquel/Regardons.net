@@ -1,0 +1,790 @@
+.home-page {
+    /* Dark background like your mockup */
+    background-color: #151a16;
+
+    /* Default light text for contrast on dark background */
+    color: #f3efe6;
+
+    /* Space at the bottom so content does not touch the footer */
+    padding-bottom: 60px;
+
+    /* Serif font for the elegant editorial style */
+    font-family: "Georgia", serif;
+}
+
+/* Shared container for the main sections */
+/*.hero-section {
+    padding-right: 80px;
+    padding-left: 80px;
+}*/
+.search-filter-bar,
+.featured-section,
+.latest-articles-section {
+    /* Add left and right breathing space on small screens */
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+/* HERO SECTION */
+
+/* Main hero wrapper: left text + right visual */
+.hero-section {
+    /* Put the two hero parts next to each other */
+    display: flex;
+
+    /* Push the two columns away from each other */
+    justify-content: space-between;
+
+    /* Make the hero tall enough to feel important */
+    min-height: 420px;
+
+    /* Dark green background for the hero area */
+    background-color: #1d2923;
+}
+
+/* Left side of the hero */
+.hero-text-side {
+    /* Make this side slightly wider than the visual side */
+    flex: 1.2;
+
+    /* Different dark color to create separation */
+    background-color: #213044;
+
+    /* Space inside the block so text is not stuck to edges */
+    padding: 50px 80px;
+
+    /* Stack the text elements vertically */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Small label above the title */
+.hero-eyebrow {
+    /* Very small text */
+    font-size: 11px;
+
+    /* Make it look like a label */
+    text-transform: uppercase;
+
+    /* Spread the letters for a refined style */
+    letter-spacing: 0.2em;
+
+    /* Gold color to match the accent theme */
+    color: #c89d3c;
+
+    /* Space below the label */
+    margin-bottom: 20px;
+}
+
+/* Main title in the hero */
+.hero-title {
+    /* Large title size */
+    font-size: 34px;
+
+    /* Keep the lines close but readable */
+    line-height: 1.2;
+
+    /* Remove top margin and add some space below */
+    margin: 0 0 18px;
+}
+
+/* Highlighted word inside the title */
+.hero-title span {
+    /* Accent yellow for the special word */
+    color: #e2a62b;
+
+    /* Italic style for emphasis */
+    font-style: italic;
+}
+
+/* Description text under the hero title */
+.hero-description {
+    /* Smaller than the title */
+    font-size: 14px;
+
+    /* Enough line spacing for easy reading */
+    line-height: 1.7;
+
+    /* Softer color so it looks secondary */
+    color: #c1c7ce;
+
+    /* Keep the text line from becoming too long */
+    max-width: 480px;
+
+    /* Space before the buttons */
+    margin-bottom: 28px;
+}
+
+/* Button row */
+.hero-actions {
+    /* Put both buttons on one line */
+    display: flex;
+
+    /* Space between the buttons */
+    gap: 10px;
+
+    /* Space below the button row */
+    margin-bottom: 32px;
+}
+
+/* Shared button styles */
+.primary-btn,
+.secondary-btn {
+    /* Make the link behave like a button */
+    display: inline-block;
+
+    /* Inner space for a proper click/tap area */
+    padding: 10px 18px;
+
+    /* Small button text */
+    font-size: 13px;
+
+    /* Rounded corners for soft shape */
+    border-radius: 6px;
+
+    /* Remove default underline from links */
+    text-decoration: none;
+
+    /* Center the text inside the button */
+    text-align: center;
+}
+
+/* Main call-to-action button */
+.primary-btn {
+    /* Gold background like the mockup */
+    background-color: #e2a62b;
+
+    /* Dark text for strong contrast */
+    color: #191919;
+
+    /* Make it feel more important */
+    font-weight: bold;
+}
+
+/* Secondary button */
+.secondary-btn {
+    /* Simple outline instead of a filled background */
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    /* Light text on dark background */
+    color: #d2d8e0;
+}
+
+/* Statistics row under the hero content */
+.hero-stats {
+    /* Thin line above the stats to separate them */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Space between the line and the stats */
+    margin-top: 18px;
+
+    /* Push stats away from the border line */
+    padding-top: 20px;
+
+    /* Put the numbers side by side */
+    display: flex;
+
+    /* Space between each stat block */
+    gap: 40px;
+}
+
+/* Number in each stat block */
+.stat-item h3 {
+    /* Remove default spacing */
+    margin: 0 0 2px;
+
+    /* Bigger number so it stands out */
+    font-size: 24px;
+
+    /* Accent gold color */
+    color: #e2b95e;
+}
+
+/* Small label under each stat number */
+.stat-item span {
+    /* Small text for labels */
+    font-size: 11px;
+
+    /* Make it look like a label */
+    text-transform: uppercase;
+
+    /* Slight spacing between letters */
+    letter-spacing: 0.15em;
+
+    /* Muted grey text */
+    color: #818a91;
+}
+
+/* Right side of the hero */
+.hero-visual-side {
+    /* Share space with the left side */
+    flex: 1;
+
+    /* Dark background for the visual block */
+    background-color: #152017;
+
+    /* Keep children laid out naturally */
+    display: flex;
+}
+
+/* Placeholder area for the hero image */
+.hero-image {
+    /* Fill the full width of the right column */
+    width: 100%;
+
+    /* Try to match the height of the hero section */
+    min-height: 100%;
+}
+
+/* SEARCH + FILTER BAR */
+
+/* Bar under the hero section */
+.search-filter-bar {
+    /* Dark strip behind search and filters */
+
+    /* Space above this bar */
+    margin-top: 18px;
+
+    /* Vertical padding inside the bar */
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    /* Put the search box and tags on the same row */
+    display: flex;
+
+    /* Allow the items to wrap on smaller screens */
+    flex-wrap: wrap;
+
+    /* Space between the search and the tags */
+    gap: 10px;
+
+    /* Vertically center the items */
+    align-items: center;
+}
+
+/* Search input + button container */
+.search-box {
+    /* Put input and button next to each other */
+    display: flex;
+
+    /* Let it grow and shrink depending on screen size */
+    flex: 1 1 450px;
+
+    /* Space between input and button */
+    gap: 10px;
+}
+
+/* Search input */
+.search-box input {
+    /* Let input take most of the row */
+    flex: 1;
+
+    /* Internal spacing for text */
+    padding: 10px 12px;
+
+    /* Rounded corners */
+    border-radius: 6px;
+
+    /* Thin border for definition */
+    border: 1px solid #414841;
+
+    /* Dark input background */
+    background-color: #2c332d;
+
+    /* Light text color */
+    color: #f5f1e8;
+
+    /* Small readable text size */
+    font-size: 13px;
+}
+
+/* Placeholder text inside the input */
+.search-box input::placeholder {
+    /* Softer color for the hint text */
+    color: #848b84;
+}
+
+/* Search button */
+.search-box button {
+    /* Button padding for click/tap area */
+    padding: 10px 16px;
+
+    /* Match the rounded input */
+    border-radius: 6px;
+
+    /* Remove browser default border */
+    border: none;
+
+    /* Gold accent background */
+    background-color: #e2a62b;
+
+    /* Dark text for contrast */
+    color: #1b1b1b;
+
+    /* Small but clear text */
+    font-size: 13px;
+
+    /* Make it feel like a button */
+    font-weight: bold;
+
+    /* Show hand cursor on hover */
+    cursor: pointer;
+}
+
+/* Container for the filter tags */
+.filter-tags {
+    /* Place tags in a row */
+    display: flex;
+
+    /* Small space between tags */
+    gap: 6px;
+}
+
+/* Basic tag button */
+.tag {
+    /* Padding makes it pill-shaped */
+    padding: 7px 12px;
+
+    /* Fully rounded pill shape */
+    border-radius: 999px;
+
+    /* Subtle outline */
+    border: 1px solid #474f48;
+
+    /* Transparent background for inactive tags */
+    background-color: transparent;
+
+    /* Muted text color */
+    color: #b0b6b0;
+
+    /* Small label text */
+    font-size: 11px;
+
+    /* Show hand cursor */
+    cursor: pointer;
+}
+
+/* Active tag style */
+.tag.active {
+    /* Light background to show selection */
+    background-color: #f3e5c3;
+
+    /* Dark text for readability */
+    color: #151515;
+}
+
+/* FEATURED SECTION */
+
+/* Outer wrapper for the featured articles section */
+.featured-section {
+    /* Space above the section */
+    margin-top: 28px;
+}
+
+/* Small heading label */
+.section-heading span {
+    /* Very small text */
+    font-size: 11px;
+
+    /* Uppercase for style */
+    text-transform: uppercase;
+
+    /* Spread the letters */
+    letter-spacing: 0.18em;
+
+    /* Gold accent */
+    color: #c79b3e;
+}
+
+/* Layout for the featured cards */
+.featured-grid {
+    /* Put the big card and the small cards side by side */
+    display: flex;
+
+    /* Space between columns */
+    gap: 16px;
+
+    /* Space under the heading */
+    margin-top: 12px;
+}
+
+/* Large featured card on the left */
+.featured-main-card {
+    /* Make this card wider than the right side */
+    flex: 1.4;
+
+    /* Card background */
+    background-color: #323834;
+
+    /* Rounded edges */
+    border-radius: 10px;
+
+    /* Keep image and text inside rounded corners */
+    overflow: hidden;
+}
+
+/* Placeholder for the big image inside the featured card */
+.featured-main-image {
+    /* Fixed height for the image area */
+    height: 260px;
+    width: 100%;
+}
+
+/* Right column that holds the small cards */
+.featured-side-cards {
+    /* Use the remaining space */
+    flex: 1;
+
+    /* Grid for the small cards */
+    display: grid;
+
+    /* Two equal columns */
+    grid-template-columns: 1fr 1fr;
+
+    /* Space between cards */
+    gap: 12px;
+}
+
+/* Shared style for each small card */
+.small-card {
+    /* Card background */
+    background-color: #3a403c;
+
+    /* Rounded corners */
+    border-radius: 10px;
+
+    /* Keep content clipped inside */
+    overflow: hidden;
+}
+
+/* Placeholder image inside each small card */
+.small-card-image {
+    /* Short height because the cards are smaller */
+    height: 90px;
+    width: 100%;
+
+    /* Different gradient to imitate a thumbnail */
+    background: linear-gradient(to bottom, #1f2a3e, #262c30);
+}
+
+/* Content area inside any card */
+.card-content {
+    /* Space inside the card */
+    padding: 14px 14px 16px;
+}
+
+/* Category label above the card title */
+.card-category {
+    /* Small text */
+    font-size: 10px;
+
+    /* Uppercase label */
+    text-transform: uppercase;
+
+    /* Spacing between letters */
+    letter-spacing: 0.16em;
+
+    /* Accent gold */
+    color: #c89d3c;
+
+    /* Space below the label */
+    margin-bottom: 6px;
+}
+
+/* Titles in featured and small cards */
+.featured-main-card h2,
+.small-card h3 {
+    /* Remove default top spacing */
+    margin: 0 0 8px;
+
+    font-weight: normal;
+}
+
+/* Meta text under the featured card title */
+.card-meta {
+    /* Small text for author and date */
+    font-size: 11px;
+
+    /* Muted grey */
+    color: #a6ada6;
+}
+
+/* LATEST ARTICLES */
+
+/* Wrapper for the latest articles section */
+.latest-articles-section {
+    /* Space above this section */
+    margin-top: 32px;
+}
+
+/* Row holding title and link */
+.latest-header {
+    /* Put the title on the left and link on the right */
+    display: flex;
+
+    /* Push them to the far edges */
+    justify-content: space-between;
+
+    /* Vertically align them */
+    align-items: center;
+
+    /* Small gap in case they wrap */
+    gap: 10px;
+
+    /* Space below the row */
+    margin-bottom: 12px;
+}
+
+/* Section heading */
+.latest-header h2 {
+    /* Remove default margin */
+    margin: 0;
+
+    /* Medium-large title */
+    font-size: 22px;
+}
+
+/* Link on the right side */
+.view-all-link {
+    /* Small link text */
+    font-size: 13px;
+
+    /* Gold accent color */
+    color: #c79b3e;
+
+    /* Remove underline */
+    text-decoration: none;
+}
+
+/* Grid for the three latest article cards */
+.latest-grid {
+    /* Make the cards line up in 3 columns */
+    display: grid;
+
+    /* Three equal-width columns */
+    grid-template-columns: repeat(3, 1fr);
+
+    /* Space between cards */
+    gap: 14px;
+}
+
+/* Each latest article card */
+.latest-card {
+    /* Dark card background */
+    background-color: #3a403c;
+
+    /* Rounded corners */
+    border-radius: 10px;
+
+    /* Hide anything that goes outside the corners */
+    overflow: hidden;
+}
+
+/* Image placeholder for latest cards */
+.latest-card-image {
+    /* Taller than small cards so it feels like a blog preview */
+    height: 170px;
+    width: 100%;
+
+    /* Greenish gradient */
+    background: linear-gradient(to bottom, #1e2d1b, #3b5530);
+}
+
+/* Short description under the title */
+.card-text {
+    /* Small readable paragraph */
+    font-size: 12px;
+
+    /* Soft color */
+    color: #c6ccc4;
+
+    /* Small space above the paragraph */
+    margin-top: 6px;
+}
+
+/* Bottom meta line in the latest cards */
+.card-footer-meta {
+    /* Space above the footer row */
+    margin-top: 12px;
+
+    /* Tiny meta text */
+    font-size: 11px;
+
+    /* Muted grey */
+    color: #a6ada6;
+
+    /* Put left and right meta items apart */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 
+   RESPONSIVE (TABLET + MOBILE)
+   These rules only apply when the screen width
+   is 900px or less.
+   This is useful for tablets and smaller laptops.*/
+@media (max-width: 900px) {
+    /* 
+       HERO SECTION
+       On large screens, the hero uses a horizontal layout:
+       text on the left and image on the right.
+       
+       flex-direction: column;
+       changes that horizontal layout into a vertical one.
+       So the text appears first, then the image below it.
+       
+       Why use it?
+       Because on smaller screens there is not enough width
+       to keep both sides comfortably next to each other.
+    */
+    .hero-section {
+        flex-direction: column;
+    }
+
+    /* 
+       HERO IMAGE AREA
+       When the hero stacks vertically, the image side still needs height,
+       otherwise it may collapse and become too small.
+       
+       min-height: 220px;
+       makes sure the visual block stays visible.
+       
+       Why use it?
+       To preserve the design balance after stacking.
+    */
+    .hero-visual-side {
+        min-height: 220px;
+    }
+
+    /* 
+       FEATURED GRID
+       On desktop, this section has:
+       - one large featured article on the left
+       - several smaller cards on the right
+       
+       flex-direction: column;
+       makes those two columns stack vertically.
+       
+       Why use it?
+       Because a side-by-side layout becomes too cramped on tablets.
+    */
+    .featured-grid {
+        flex-direction: column;
+    }
+
+    /* 
+       FEATURED SIDE CARDS
+       On desktop, the small cards use:
+       grid-template-columns: 1fr 1fr;
+       which means 2 equal columns.
+       
+       grid-template-columns: 1fr;
+       changes it to 1 column only.
+       
+       Why use it?
+       So each small card gets full width and is easier to read.
+    */
+    .featured-side-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* 
+       LATEST ARTICLES GRID
+       On desktop, the latest articles use 3 columns.
+       
+       grid-template-columns: 1fr 1fr;
+       changes that into 2 columns.
+       
+       Why use it?
+       Because 3 columns are too narrow on medium screens.
+       2 columns still keeps a card layout while giving more space.
+    */
+    .latest-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/*
+   RESPONSIVE (SMALL MOBILE)
+   These rules only apply when the screen width
+   is 600px or less.
+   This targets phones. */
+@media (max-width: 600px) {
+    /* 
+       HERO TEXT AREA
+       On phones, large padding wastes too much space.
+       
+       padding: 32px 20px;
+       reduces the inside spacing:
+       - 32px top/bottom
+       - 20px left/right
+       
+       Why use it?
+       To make the content fit better on narrow screens.
+    */
+    .hero-text-side {
+        padding: 32px 20px;
+    }
+
+    /* 
+       HERO ACTIONS, HERO STATS, LATEST HEADER
+       On bigger screens, these elements are arranged in a row.
+       
+       flex-direction: column;
+       stacks their children vertically.
+       
+       align-items: flex-start;
+       aligns everything to the left instead of stretching or centering.
+       
+       Why use it?
+       On phones, horizontal rows often become too tight,
+       so vertical stacking is cleaner and easier to scan.
+    */
+    .hero-actions,
+    .hero-stats,
+    .latest-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* 
+       LATEST ARTICLES GRID
+       grid-template-columns: 1fr;
+       means only one column.
+       
+       Why use it?
+       On a very small screen, article cards should take full width
+       to remain readable and avoid cramped layouts.
+    */
+    .latest-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* 
+       SEARCH BOX
+       On larger screens, the input and button sit side by side.
+       
+       flex-direction: column;
+       places the input on one line and the button below it.
+       
+       Why use it?
+       This prevents the search bar from becoming too narrow on phones.
+    */
+    .search-box {
+        flex-direction: column;
+    }
+
+    /* 
+       SEARCH BUTTON
+       width: 100%;
+       makes the button stretch across the full width
+       of the search-box container.
+       
+       Why use it?
+       A full-width button is easier to tap on mobile
+       and visually matches the width of the input above it.
+    */
+    .search-box button {
+        width: 100%;
+    }
+}
