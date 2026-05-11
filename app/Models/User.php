@@ -28,4 +28,11 @@ class User extends Authenticatable implements MustVerifyEmail // <--- this
             'password' => 'hashed',
         ];
     }
+
+    // Relationship: a user HAS MANY articles
+// Usage: $user->articles (returns all their articles)
+public function articles()
+{
+    return $this->hasMany(Article::class);
+}
 }
